@@ -1,4 +1,6 @@
 const app = require('./app');
+const db = require('./config/db');
+const userModel = require('./model/user.model');
 
 const port = 3000;
 
@@ -8,5 +10,5 @@ app.get('/',(req, res)=>{
 });
 
 app.listen(port, ()=>{
-    console.log('Server Listing on Port http://172.19.82.172:'+port);
+    console.log('Server Listing on Port http://localhost:'+port); 
 });
