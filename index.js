@@ -6,7 +6,7 @@ const port = 3000;
 
 
 app.get('/',(req, res)=>{
-    res.send("Hello, node-js backend 'Developer'");
+    res.send("Hello, node-js backend Developer");
 });
 
 app.listen(port, ()=>{
