@@ -5,31 +5,16 @@ class UserService{
 
 
     static async registerUser(email, password){
-        try{
-            const createUser = new userModel({email, password});
-            return createUser.save();
-
-        }catch(err){
-            throw err;
-        }
+        const createUser = new userModel({email, password});
+        return createUser.save();
     }
 
     static async checkUser(email){
-        try{
-            return await userModel.findOne({email});
-
-        }catch(err){
-            throw err;
-        }
+        return await userModel.findOne({email});
     }
 
     static async generateToekn(tokenData, secretKey, jwt_expiry){
-        try{
-            return jwt.sign(tokenData, secretKey, {expiresIn: jwt_expiry});
-
-        }catch(err){
-            throw err;
-        }
+        return jwt.sign(tokenData, secretKey, {expiresIn: jwt_expiry});
     }
 
 

@@ -18,11 +18,7 @@ class TodoService{
         return deleted;
     }
     static async upateTask(id, title, description){
-
-        // Update the document with the new values
         const updated = await TodoModel.findByIdAndUpdate(id, {title, description});
-
-        console.log(updated);
         return updated;
     }
 

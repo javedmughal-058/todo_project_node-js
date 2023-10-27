@@ -8,7 +8,7 @@ exports.createTodo = async(req, res, next)=> {
         if(todoCreate != null){ 
             res.status(200).json({
                 status  : true,
-                msg     : "Todo Saved",
+                msg     : "Task Saved",
                 success : todoCreate,
             });
         }

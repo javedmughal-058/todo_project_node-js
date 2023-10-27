@@ -7,9 +7,7 @@ exports.register = async(req, res, next)=> {
         const user = await UserService.checkUser(email);
         if(user == null){
             const successRes = await UserService.registerUser(email,password);
-
             res.json({status: true, msg: "User Registered Successfully"});
-            
         }
         else{
             res.status(200).json({
@@ -32,7 +30,6 @@ exports.login = async(req, res, next)=> {
     try{
         const {email, password} = req.body;
         const user = await UserService.checkUser(email);
-        // console.log("-------User---------- ",user);
         if(user == null){
             res.status(200).json({
                 status : false,
@@ -42,7 +39,6 @@ exports.login = async(req, res, next)=> {
 
         else{
             const isMatch = await user.commparePassword(password);
-            // console.log("--------Match--------- ",isMatch);
             if(isMatch == false){
                 res.status(200).json({
                     status : false,
