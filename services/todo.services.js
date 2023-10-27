@@ -16,7 +16,7 @@ class TodoService{
 
     static async deleteTodoData(taskId){
         const deleted = await TodoModel.findOneAndDelete({_id:taskId})
-        console.log("idr "+deleted);
+        // console.log("idr "+deleted);
         return deleted;
     }
 

@@ -55,7 +55,7 @@ exports.deleteTodo = async(req, res, next)=> {
         console.log("deleting......");
         const {taskId} = req.body;
         let deleted = await TodoService.deleteTodoData(taskId);
-        console.log(deleted);
+        // console.log(deleted);
         if(deleted){ 
             res.status(200).json({
                 status  : true,
