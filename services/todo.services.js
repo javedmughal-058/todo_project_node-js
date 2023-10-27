@@ -1,6 +1,5 @@
 const TodoModel = require('../model/todo.model');
 
-
 class TodoService{
 
 
@@ -16,8 +15,15 @@ class TodoService{
 
     static async deleteTodoData(taskId){
         const deleted = await TodoModel.findOneAndDelete({_id:taskId})
-        // console.log("idr "+deleted);
         return deleted;
+    }
+    static async upateTask(id, title, description){
+
+        // Update the document with the new values
+        const updated = await TodoModel.findByIdAndUpdate(id, {title, description});
+
+        console.log(updated);
+        return updated;
     }
 
 

@@ -80,3 +80,35 @@ exports.deleteTodo = async(req, res, next)=> {
     }
 
 }
+
+exports.updateTodo = async(req, res, next)=> {
+
+    try{
+        console.log("upating......");
+        const {id, title, description} = req.body;
+        let updated = await TodoService.upateTask(id, title, description);
+        
+        if(updated){ 
+            res.status(200).json({
+                status  : true,
+                msg     : "Task Updated",
+            
+            });
+        }
+        else{
+            res.status(200).json({
+                status  : false,
+                msg     : "Task Not Updated",
+        
+            });
+        }
+    
+
+    }catch(err){
+        res.status(200).json({
+            status  : false,
+            msg     : "Failed "+err,
+        });
+    }
+
+}
