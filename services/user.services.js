@@ -13,7 +13,7 @@ class UserService{
         return await userModel.findOne({email});
     }
 
-    static async generateToekn(tokenData, secretKey, jwt_expiry){
+    static async generateToken(tokenData, secretKey, jwt_expiry){
         return jwt.sign(tokenData, secretKey, {expiresIn: jwt_expiry});
     }
 
